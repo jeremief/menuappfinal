@@ -1,7 +1,11 @@
-titlebar{
-    font-size: 100px;
+
+body {
+    background-color: #FFD999;
 }
 
-p{
-    font-size: 100px;
+.titlebar{
+    /*height: 50px*/
+    background-color:#8C5400;
+    /*margin: 0px;*/
+    /*padding: 0px;*/
 }
