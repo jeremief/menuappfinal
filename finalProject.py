@@ -5,6 +5,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from database_setup import Base, Restaurant, MenuItem
 
+import cgi
+
 engine = create_engine('sqlite:///restaurantmenu.db')
 Base.metadata.bind = engine 
 
@@ -14,11 +16,19 @@ session = DBSession()
 @app.route('/')
 @app.route('/restaurants/')
 def showRestaurants():
-    return render_template('restaurants.html')
+    restaurants = session.query(Restaurant).all()
+    return render_template('restaurants.html', restaurants=restaurants)
 
-@app.route('/restaurant/new/')
-def newRestaurant():
-    return render_template('newrestaurant.html')
+@app.route('/restaurant/new/', methods=['GET', 'POST'])
+def newRestaurant(): 
+    if request.method == 'POST':
+        newRestaurant = Restaurant(name = request.form['name'])
+        session.add(newRestaurant)
+        session.commit()
+        # flash(str(newRestaurant.name) + " successfully created!")
+        return redirect(url_for('showRestaurants'))
+    else:
+        return render_template('newrestaurant.html')
 
 @app.route('/restaurant/<int:restaurant_id>/edit/')
 def editRestaurant(restaurant_id):

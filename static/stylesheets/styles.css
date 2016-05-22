@@ -7,3 +7,18 @@ body {
 .titlebar{
     background-color:#8C5400;
 }
+
+.button{
+    background-color: #8C5400;
+    border: none;
+    border-radius: 4px;
+    color: #FFD999;
+    padding: 2px 15px 2px 15px;
+    float: right;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+}

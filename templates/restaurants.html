@@ -2,8 +2,24 @@
 
 {% block content %}
 
-This is where the restaurants are showing.
+<br>
+<br>
+<br>
 
-Oi!
+    {% for restaurant in restaurants %}
+
+    {{restaurant.name}} 
+    <a href="">Menu</a> 
+    <a href="">Edit</a> 
+    <a href="">Delete</a> 
+
+    <br>
+    <br>
+
+
+    {% endfor %}
+
+<a href="/restaurant/new/" class="button">Add <br>restaurant</button>
+
 
 {% endblock %}
