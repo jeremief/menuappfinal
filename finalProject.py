@@ -24,25 +24,25 @@ def newRestaurant():
 def editRestaurant(restaurant_id):
     return render_template('editrestaurant.html')
 
-@app.route('/restaurant/<int:restaurant_id>/delete')
+@app.route('/restaurant/<int:restaurant_id>/delete/')
 def deleteRestaurant(restaurant_id):
     return render_template('deleterestaurant.html')
 
 @app.route('/restaurant/<int:restaurant_id>/')
-@app.route('/restaurant/<int:restaurant_id>/menu')
+@app.route('/restaurant/<int:restaurant_id>/menu/')
 def showMenu(restaurant_id):
     return render_template('menu.html')
 
-@app.route('/restaurant/<int:restaurant_id>/menu/new')
+@app.route('/restaurant/<int:restaurant_id>/menu/new/')
 def newMenuItem(restaurant_id):
     return render_template('newmenuitem.html')
 
-@app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/edit')
+@app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/edit/')
 def editMenuItem(restaurant_id, menu_id):
     return render_template('editmenuitem.html')
 
 
-@app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/delete')
+@app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/delete/')
 def deleteMenuItem(restaurant_id, menu_id):
     return render_template('deletemenuitem.html')
 
