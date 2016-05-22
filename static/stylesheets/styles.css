@@ -1,11 +1,9 @@
 
 body {
     background-color: #FFD999;
+    color: #8C5400;
 }
 
 .titlebar{
-    /*height: 50px*/
     background-color:#8C5400;
-    /*margin: 0px;*/
-    /*padding: 0px;*/
 }
