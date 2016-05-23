@@ -47,3 +47,9 @@ body {
     color: #FFD999;
 
 }
+
+.restaurants-table{
+    margin: 0px auto;
+
+    width: 50%;
+}

@@ -16,18 +16,18 @@
 <br>
 <br>
 
+<table class="restaurants-table">
 {% for restaurant in restaurants %}
-
-    {{restaurant.name}} 
-    <a href=''>Menu</a> 
-    <a href='{{url_for('editRestaurant', restaurant_id=restaurant.id)}}'>Edit</a> 
-    <a href='{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}'>Delete</a> 
-
-    <br>
-    <br>
-
+    <tr>
+        <td>{{restaurant.name}}</td>
+        <td><a href=''>Menu</a></td>
+        <td><a href='{{url_for('editRestaurant', restaurant_id=restaurant.id)}}'>Edit</a></td> 
+        <td><a href='{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}'>Delete</a></td>
+    </tr>
 
     {% endfor %}
+</table>
+
 
 <a href="/restaurant/new/" class="button">Add <br>restaurant</button>
 
