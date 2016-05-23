@@ -19,8 +19,8 @@
 {% for restaurant in restaurants %}
 
     {{restaurant.name}} 
-    <a href="">Menu</a> 
-    <a href="">Edit</a> 
+    <a href=''>Menu</a> 
+    <a href='{{url_for('editRestaurant', restaurant_id=restaurant.id)}}'>Edit</a> 
     <a href='{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}'>Delete</a> 
 
     <br>

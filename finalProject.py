@@ -1,3 +1,9 @@
+# TODO:
+# Animate flash message
+# Make sure that deleting a restaurant deletes the menu as well
+# Make variable names more meaningful(?)
+# Make sure mobile experience is accepatble
+
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 app = Flask(__name__)
 
@@ -30,9 +36,18 @@ def newRestaurant():
     else:
         return render_template('newrestaurant.html')
 
-@app.route('/restaurant/<int:restaurant_id>/edit/')
+@app.route('/restaurant/<int:restaurant_id>/edit/', methods=['GET', 'POST'])
 def editRestaurant(restaurant_id):
-    return render_template('editrestaurant.html')
+    editedRestaurant = session.query(Restaurant).filter_by(id=restaurant_id).one()
+    if request.method == 'POST':
+        if request.form['name']:
+            editedRestaurant.name = request.form['name']
+        session.add(editedRestaurant)
+        session.commit()
+        flash(str(editedRestaurant.name) + " successfully modified!")
+        return redirect(url_for('showRestaurants'))
+    else:
+        return render_template('editrestaurant.html',restaurant_id=restaurant_id, i=editedRestaurant)
 
 @app.route('/restaurant/<int:restaurant_id>/delete/', methods=['GET', 'POST'])
 def deleteRestaurant(restaurant_id):
