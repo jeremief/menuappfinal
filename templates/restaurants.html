@@ -3,19 +3,6 @@
 {% block content %}
 
 
-{% with messages = get_flashed_messages() %}
-    {% if messages %}
-
-            {% for message in messages %}
-            <div class="message">{{message}}</div>
-            {% endfor %}
-
-    {% endif %}
-{% endwith %}
-<br>
-<br>
-<br>
-
 <table class="restaurants-table">
 {% for restaurant in restaurants %}
     <tr>
