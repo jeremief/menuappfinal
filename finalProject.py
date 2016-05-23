@@ -25,7 +25,7 @@ def newRestaurant():
         newRestaurant = Restaurant(name = request.form['name'])
         session.add(newRestaurant)
         session.commit()
-        # flash(str(newRestaurant.name) + " successfully created!")
+        flash(str(newRestaurant.name) + " successfully created!")
         return redirect(url_for('showRestaurants'))
     else:
         return render_template('newrestaurant.html')
@@ -34,9 +34,19 @@ def newRestaurant():
 def editRestaurant(restaurant_id):
     return render_template('editrestaurant.html')
 
-@app.route('/restaurant/<int:restaurant_id>/delete/')
+@app.route('/restaurant/<int:restaurant_id>/delete/', methods=['GET', 'POST'])
 def deleteRestaurant(restaurant_id):
-    return render_template('deleterestaurant.html')
+    # deletedRestaurant = session.query(Restaurant).filter_by(id = id).one()
+    deletedRestaurant = session.query(Restaurant).filter_by(id = restaurant_id).one()
+    if request.method == 'POST':
+        session.delete(deletedRestaurant)
+        session.commit()
+        flash(str(deletedRestaurant.name) + " successfully deleted!")
+        return redirect(url_for('showRestaurants'))
+    else:
+        # return render_template('deleterestaurant.html', i=deletedRestaurant)
+        return render_template('deleterestaurant.html', restaurant_id=restaurant_id, i=deletedRestaurant)
+    # return render_template('deleterestaurant.html')
 
 @app.route('/restaurant/<int:restaurant_id>/')
 @app.route('/restaurant/<int:restaurant_id>/menu/')
