@@ -39,10 +39,11 @@ body {
 
 .message{
     background-color: black;
-    width: 100%
+    width: 100%;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     text-align: center;
     border: none;
-    padding: none;
-    color: #FFD999
+    padding: 10px 0px 10px 0px;
+    color: #FFD999;
 
 }
