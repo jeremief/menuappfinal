@@ -2,7 +2,12 @@
 
 {% block content %}
 
-This is for menus
+<h1>{{restaurant.name}}</h1>
+
+{% for item in items %}
+{{item.name}} <br>
+
+{% endfor %}
 
 
 {% endblock %}
