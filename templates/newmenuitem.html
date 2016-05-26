@@ -5,19 +5,35 @@
 <h1>Create a new menu item for {{restaurant.name}}</h1>
 
 <form action="{{url_for('newMenuItem',restaurant_id=restaurant_id)}}" method="post">
+<table>
+<tr>
+    <td>
+        Name:
+    </td>
+    <td>
+        <input type="text" size="30" name="name"></input>
+    </td>    
+</tr>    
 
-<p>Name:</p>
-    <input type="text" size="30" name="name"></input>
-    <br>
+<tr>
+    <td>    
+        Description:
+    </td>
+    <td>
+        <input type="text" size="60" style="height:200px;" name="description"></input>
+    </td>    
+</tr>
 
-<p>Description:</p>
-    <input type="text" size="60" style="height:200px;" name="description"></input>
-    <br>
+<tr>
+    <td>    
+        Price:
+    </td>
+    <td>
+        <input type="text" size="15" name="price"></input>
+    </td>    
+</tr>
 
-<p>Price:</p>
-    <input type="text" size="15" name="price"></input>
-    <br>
-
+</table>
     <input type="submit" class="left-button" value="Save"></input>
     <a href="{{url_for('showMenu',restaurant_id=restaurant_id)}}" class="button">Cancel</a>
 
