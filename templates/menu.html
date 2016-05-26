@@ -4,10 +4,19 @@
 
 <h1>{{restaurant.name}}</h1>
 
+<table class="menus-table"> 
+    
 {% for item in items %}
-{{item.name}} <br>
-
+<tr>
+<td>{{item.name}} </td>
+<td>{{item.description}}</td>
+<td>{{item.price}}</td>
+<td><a href=''>Edit</a></td>
+<td><a href=''>Delete</a></td>
+</tr>
 {% endfor %}
+</table>
 
+<a href='{{url_for('newMenuItem',restaurant_id=restaurant.id)}}' class="button">Add <br> Menu Item</a>
 
 {% endblock %}
