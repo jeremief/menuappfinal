@@ -1,7 +1,6 @@
 # TODO:
 # Animate flash message
 # Make sure that deleting a restaurant deletes the menu as well
-# Make sure restaurant name comes accross when adding new menu item
 # Make variable names more meaningful(?)
 # Make sure mobile experience is accepatble
 
@@ -70,6 +69,7 @@ def showMenu(restaurant_id):
 
 @app.route('/restaurant/<int:restaurant_id>/menu/new/', methods=['GET', 'POST'])
 def newMenuItem(restaurant_id):
+    restaurant = session.query(Restaurant).filter_by(id=restaurant_id).one()
     if request.method == 'POST':
         newItem = MenuItem(name = request.form['name'], description=request.form['description'], price=request.form['price'], restaurant_id = restaurant_id)
         session.add(newItem)
@@ -77,7 +77,7 @@ def newMenuItem(restaurant_id):
         flash(str(newItem.name) + " successfully created!")
         return redirect(url_for('showMenu', restaurant_id=restaurant_id))
     else:
-        return render_template('newmenuitem.html', restaurant_id=restaurant_id)
+        return render_template('newmenuitem.html', restaurant_id=restaurant_id, restaurant=restaurant)
 
 
 @app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/edit/')
