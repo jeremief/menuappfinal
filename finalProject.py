@@ -71,7 +71,7 @@ def showMenu(restaurant_id):
 @app.route('/restaurant/<int:restaurant_id>/menu/new/', methods=['GET', 'POST'])
 def newMenuItem(restaurant_id):
     if request.method == 'POST':
-        newItem = MenuItem(name = request.form['name'], restaurant_id = restaurant_id)
+        newItem = MenuItem(name = request.form['name'], description=request.form['description'], price=request.form['price'], restaurant_id = restaurant_id)
         session.add(newItem)
         session.commit()
         flash(str(newItem.name) + " successfully created!")
