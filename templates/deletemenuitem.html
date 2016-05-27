@@ -2,6 +2,42 @@
 
 {% block content %}
 
-This is to delete menu items
+
+<h1>Delete menu item for {{restaurant.name}}</h1>
+
+<form action="{{url_for('deleteMenuItem',restaurant_id=restaurant_id, menu_id=menu_id)}}" method="post">
+<table>
+<tr>
+    <td>
+        Name:
+    </td>
+    <td>
+        {{deletedItem.name}}
+    </td>    
+</tr>    
+
+<tr>
+    <td>    
+        Description:
+    </td>
+    <td>
+        {{deletedItem.description}}
+    </td>    
+</tr>
+
+<tr>
+    <td>    
+        Price:
+    </td>
+    <td>
+        {{deletedItem.price}}
+    </td>    
+</tr>
+
+</table>
+    <input type="submit" class="left-button" value="Delete"></input>
+    <a href="{{url_for('showMenu',restaurant_id=restaurant_id)}}" class="button">Cancel</a>
+
+</form>
 
 {% endblock %}

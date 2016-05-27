@@ -12,7 +12,7 @@
 <td>{{item.description}}</td>
 <td>{{item.price}}</td>
 <td><a href=''>Edit</a></td>
-<td><a href=''>Delete</a></td>
+<td><a href='{{url_for('deleteMenuItem', restaurant_id=restaurant.id, menu_id=item.id)}}'>Delete</a></td>
 </tr>
 {% endfor %}
 </table>
