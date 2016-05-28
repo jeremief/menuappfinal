@@ -1,4 +1,5 @@
 # TODO:
+# PEP8
 # Animate flash message
 # Add line in template when there is no menu item
 # Make variable names more meaningful(?)
@@ -112,6 +113,19 @@ def deleteMenuItem(restaurant_id, menu_id):
         return redirect(url_for('showMenu', restaurant_id=restaurant_id))
     else:
         return render_template('deletemenuitem.html',restaurant_id=restaurant_id, menu_id=menu_id, restaurant=restaurant, deletedItem=deletedItem)
+
+@app.route('/restaurants/JSON/')
+def restaurantsJSON():
+    return "JSON for restaurants"
+
+
+@app.route('/restaurant/<int:restaurant_id>/menu/JSON/')
+def restaurantMenuJSON(restaurant_id):
+    return "JSON for menu of restaurant %s" % restaurant_id
+
+@app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/JSON/')
+def menuItemJSON(restaurant_id, menu_id):
+    return "JSON for menu item %s of restaurant %s" % (menu_id, restaurant_id)
 
 
 if __name__ == '__main__':
