@@ -1,8 +1,11 @@
 # TODO:
 # Animate flash message
-# Make sure that deleting a restaurant deletes the menu as well
+# Add line in template when there is no menu item
 # Make variable names more meaningful(?)
+# Make font choice more appealing
+# Move text in edit pages to top left
 # Make sure mobile experience is accepatble
+# Prevent blank entries
 
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 app = Flask(__name__)
@@ -52,8 +55,11 @@ def editRestaurant(restaurant_id):
 @app.route('/restaurant/<int:restaurant_id>/delete/', methods=['GET', 'POST'])
 def deleteRestaurant(restaurant_id):
     deletedRestaurant = session.query(Restaurant).filter_by(id = restaurant_id).one()
+    deletedItems = session.query(MenuItem).filter_by(restaurant_id=restaurant_id).all()
     if request.method == 'POST':
         session.delete(deletedRestaurant)
+        for item in deletedItems:
+            session.delete(item)
         session.commit()
         flash(str(deletedRestaurant.name) + " successfully deleted!")
         return redirect(url_for('showRestaurants'))
