@@ -1,7 +1,7 @@
 # TODO:
 # PEP8
 # Animate flash message
-# Add line in template when there is no menu item
+# Add line in template when there is no restaurant or menu item
 # Make variable names more meaningful(?)
 # Make font choice more appealing
 # Move text in edit pages to top left
