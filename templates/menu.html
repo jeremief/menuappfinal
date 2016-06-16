@@ -17,6 +17,11 @@
 {% endfor %}
 </table>
 
+<p>{{nullMessage}}</p>
+
+
+
+
 <a href='{{url_for('newMenuItem',restaurant_id=restaurant.id)}}' class="button">Add <br> Menu Item</a>
 
 {% endblock %}

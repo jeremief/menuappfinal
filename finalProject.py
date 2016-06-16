@@ -71,8 +71,11 @@ def deleteRestaurant(restaurant_id):
 @app.route('/restaurant/<int:restaurant_id>/menu/')
 def showMenu(restaurant_id):
     restaurant = session.query(Restaurant).filter_by(id=restaurant_id).one()
-    items = session.query(MenuItem).filter_by(restaurant_id=restaurant_id)
-    return render_template('menu.html', restaurant=restaurant, items=items)
+    items = session.query(MenuItem).filter_by(restaurant_id=restaurant_id).all()
+    nullMessage = ""
+    if len(items) == 0:
+        nullMessage = "There is no menu item yet."
+    return render_template('menu.html', restaurant=restaurant, items=items, nullMessage=nullMessage)
 
 @app.route('/restaurant/<int:restaurant_id>/menu/new/', methods=['GET', 'POST'])
 def newMenuItem(restaurant_id):
