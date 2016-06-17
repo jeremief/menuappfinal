@@ -1,12 +1,3 @@
-# TODO:
-# PEP8
-# Animate flash message
-# Add line in template when there is no restaurant or menu item
-# Make variable names more meaningful(?)
-# Make font choice more appealing
-# Move text in edit pages to top left
-# Make sure mobile experience is accepatble
-# Prevent blank entries
 
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 app = Flask(__name__)
