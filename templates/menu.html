@@ -8,7 +8,7 @@
     
 {% for item in items %}
 <tr>
-<td>{{item.name}} </td>
+<td>{{item.name}}: </td>
 <td>{{item.description}}</td>
 <td>{{item.price}}</td>
 <td><a href='{{url_for('editMenuItem', restaurant_id=restaurant.id, menu_id=item.id)}}'>Edit</a></td>

@@ -4,6 +4,7 @@ body {
     color: #8C5400;
 }
 
+
 .titlebar{
     background-color:#8C5400;
 }
@@ -47,6 +48,12 @@ body {
     color: #FFD999;
 
 }
+
+tr{
+    vertical-align: top;
+    line-height: 25px;
+}
+
 
 .restaurants-table{
     margin: 0px auto;
