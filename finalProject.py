@@ -23,11 +23,15 @@ def showRestaurants():
 @app.route('/restaurant/new/', methods=['GET', 'POST'])
 def newRestaurant(): 
     if request.method == 'POST':
-        newRestaurant = Restaurant(name = request.form['name'])
-        session.add(newRestaurant)
-        session.commit()
-        flash(str(newRestaurant.name) + " successfully created!")
-        return redirect(url_for('showRestaurants'))
+        if request.form['name']:
+            newRestaurant = Restaurant(name = request.form['name'])
+            session.add(newRestaurant)
+            session.commit()
+            flash(str(newRestaurant.name) + " successfully created!")
+            return redirect(url_for('showRestaurants'))
+        else:
+            flash("You need to give your new restaurant a name!")
+            return render_template('newrestaurant.html')
     else:
         return render_template('newrestaurant.html')
 
