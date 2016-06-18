@@ -84,8 +84,7 @@ def newMenuItem(restaurant_id):
             return redirect(url_for('showMenu', restaurant_id=restaurant_id))
         else:
             flash("You need to fill in all fields!")
-            return render_template('newmenuitem.html', restaurant_id=restaurant_id, restaurant=restaurant)
-            
+            return render_template('newmenuitem.html', restaurant_id=restaurant_id, restaurant=restaurant, entered_name=request.form['name'], entered_description=request.form['description'], entered_price=request.form['price'])            
     else:
         return render_template('newmenuitem.html', restaurant_id=restaurant_id, restaurant=restaurant)
 
