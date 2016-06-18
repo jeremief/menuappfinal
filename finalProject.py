@@ -76,11 +76,16 @@ def showMenu(restaurant_id):
 def newMenuItem(restaurant_id):
     restaurant = session.query(Restaurant).filter_by(id=restaurant_id).one()
     if request.method == 'POST':
-        newItem = MenuItem(name = request.form['name'], description=request.form['description'], price=request.form['price'], restaurant_id = restaurant_id)
-        session.add(newItem)
-        session.commit()
-        flash(str(newItem.name) + " successfully created!")
-        return redirect(url_for('showMenu', restaurant_id=restaurant_id))
+        if request.form['name'] and request.form['description'] and request.form['price']:
+            newItem = MenuItem(name = request.form['name'], description=request.form['description'], price=request.form['price'], restaurant_id = restaurant_id)
+            session.add(newItem)
+            session.commit()
+            flash(str(newItem.name) + " successfully created!")
+            return redirect(url_for('showMenu', restaurant_id=restaurant_id))
+        else:
+            flash("You need to fill in all fields!")
+            return render_template('newmenuitem.html', restaurant_id=restaurant_id, restaurant=restaurant)
+            
     else:
         return render_template('newmenuitem.html', restaurant_id=restaurant_id, restaurant=restaurant)
 
