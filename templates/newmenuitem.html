@@ -20,7 +20,7 @@
         Description:
     </td>
     <td>
-        <textarea type="text" size="60" style="height:200px;width:185px;" name="description" value="{{entered_description}}" required></textarea>
+        <textarea type="text" size="60" style="height:200px;width:185px;" name="description" required>{{entered_description}}</textarea>
     </td>    
 </tr>
 
@@ -34,11 +34,9 @@
 </tr>
 
 </table>
-    <input type="submit" class="left-button" value="Save"></input>
+    <input type="submit" class="left-button save" value="Save"></input>
     <a href="{{url_for('showMenu',restaurant_id=restaurant_id)}}" class="button">Cancel</a>
-
 </form>
-
 
 
 
