@@ -65,3 +65,32 @@ tr{
     margin: 0px auto;
     width: 50%;
 }
+
+.resto-name{
+    vertical-align: top;
+    float: left;
+    margin-left: 25%;
+    width: 15%
+
+}
+
+.resto-menu{
+    vertical-align: top;
+    position: fixed;
+    float: left;
+    left: 45%;
+}
+
+.resto-edit{
+    vertical-align: top;
+    position: fixed;
+    float: left;
+    left: 60%;
+}
+
+.resto-delete{
+    vertical-align: top;
+    position: fixed;
+    float: left;
+    left: 75%;
+}

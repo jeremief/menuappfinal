@@ -5,12 +5,18 @@
 
 <table class="restaurants-table">
 {% for restaurant in restaurants %}
-    <tr>
+    <!-- <tr>
         <td>{{restaurant.name}}</td>
         <td><a href='{{url_for('showMenu', restaurant_id=restaurant.id)}}'>Menu</a></td>
         <td><a href='{{url_for('editRestaurant', restaurant_id=restaurant.id)}}'>Edit</a></td> 
         <td><a href='{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}'>Delete</a></td>
-    </tr>
+    </tr> -->
+
+    <div class="resto-name">{{restaurant.name}}</div>
+    <div class="resto-menu"><a href='{{url_for('showMenu', restaurant_id=restaurant.id)}}'>Menu</a></div>
+    <div class="resto-edit"><a href='{{url_for('editRestaurant', restaurant_id=restaurant.id)}}'>Edit</a></div> 
+    <div class="resto-delete"><a href='{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}'>Delete</a></div>
+    <br><br>
 
     {% endfor %}
 </table>
