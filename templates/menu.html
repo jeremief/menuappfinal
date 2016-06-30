@@ -4,18 +4,15 @@
 
 <h1>{{restaurant.name}}</h1>
 
-<table class="menus-table"> 
     
 {% for item in items %}
-<tr>
-<td>{{item.name}}: </td>
-<td>{{item.description}}</td>
-<td>{{item.price}}</td>
-<td><a href='{{url_for('editMenuItem', restaurant_id=restaurant.id, menu_id=item.id)}}'>Edit</a></td>
-<td><a href='{{url_for('deleteMenuItem', restaurant_id=restaurant.id, menu_id=item.id)}}'>Delete</a></td>
-</tr>
+<div class="menu-name">{{item.name}}:</div>
+<div class="menu-description">{{item.description}}</div>
+<div class="menu-price">{{item.price}}</div>
+<div class="menu-edit"><a href='{{url_for('editMenuItem', restaurant_id=restaurant.id, menu_id=item.id)}}'>Edit</a></div>
+<div class="menu-delete"><a href='{{url_for('deleteMenuItem', restaurant_id=restaurant.id, menu_id=item.id)}}'>Delete</a></div>
+<br>
 {% endfor %}
-</table>
 
 <p>{{nullMessage}}</p>
 

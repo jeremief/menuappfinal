@@ -3,14 +3,7 @@
 {% block content %}
 
 
-<table class="restaurants-table">
 {% for restaurant in restaurants %}
-    <!-- <tr>
-        <td>{{restaurant.name}}</td>
-        <td><a href='{{url_for('showMenu', restaurant_id=restaurant.id)}}'>Menu</a></td>
-        <td><a href='{{url_for('editRestaurant', restaurant_id=restaurant.id)}}'>Edit</a></td> 
-        <td><a href='{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}'>Delete</a></td>
-    </tr> -->
 
     <div class="resto-name">{{restaurant.name}}</div>
     <div class="resto-menu"><a href='{{url_for('showMenu', restaurant_id=restaurant.id)}}'>Menu</a></div>
@@ -19,7 +12,6 @@
     <br><br>
 
     {% endfor %}
-</table>
 
 
 <a href="/restaurant/new/" class="button">Add <br>restaurant</button>

@@ -49,23 +49,6 @@ body {
 
 }
 
-tr{
-    vertical-align: top;
-    line-height: 25px;
-}
-
-
-.restaurants-table{
-    margin: 0px auto;
-    width: 50%;
-}
-
-.menus-table{
-    font-family: 'Crafty Girls', cursive;
-    margin: 0px auto;
-    width: 50%;
-}
-
 .resto-name{
     vertical-align: top;
     float: left;
@@ -89,6 +72,43 @@ tr{
 }
 
 .resto-delete{
+    vertical-align: top;
+    position: relative;
+    float: left;
+    margin-left: 15%;
+}
+
+.menu-name{
+    vertical-align: top;
+    float: left;
+    margin-left: 10%;
+    width: 10%;
+
+}
+
+.menu-description{
+    vertical-align: top;
+    position: relative;
+    float: left;
+    margin-left: 5%;
+    width: 30%;
+}
+
+.menu-price{
+    vertical-align: top;
+    position: relative;
+    float: left;
+    margin-left: 5%;
+}
+
+.menu-edit{
+    vertical-align: top;
+    position: relative;
+    float: left;
+    margin-left: 15%;
+}
+
+.menu-delete{
     vertical-align: top;
     position: relative;
     float: left;
