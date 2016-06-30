@@ -35,16 +35,18 @@ To get started, you need to do the following four steps in your command line:
 `>>> python lotsofmenus.py`
 - Launch the virtual server running the application:
 `>>> python finalProject.py`
-- Open your browser on local host on the port 5000: localhost:5000/restaurants
+- Open your browser on local host on the [port 5000](http://localhost:5000/restaurants)
 
 4. Issues and known bugs
 ------------------------
+I am still battling a few formatting issues, notably in restaurants and menu items tables.
+
 
 5. More information
 --------------------
+I plan to implement further improvements such as Google+ and Facebook sign-in
 
-6. Licence
-----------
 
-7. About
+6. About
 --------
+Created by Jeremie Faye using code learned during Udacity's Full Stack Developer Nanodegree
